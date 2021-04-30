@@ -1,0 +1,25 @@
+<head>
+</head>
+
+<body>
+  
+</body>
+
+<script>
+var getOS = function() {
+    var operatingSystems = {
+        'Win': 'Windows',
+        'Mac': 'MacOS',
+        'Linux': 'Linux',
+        'X11': 'UNIX'
+    };
+    for(var k in operatingSystems) {
+        if(navigator.appVersion.indexOf(k) !== -1) {
+            return operatingSystems[k];
+        }
+    }
+    return undefined;
+};
+
+document.body.innerHTML = getOS();
+</script>
