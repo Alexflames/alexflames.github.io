@@ -6,7 +6,31 @@
 </body>
 
 <script>
+function IOS() {
+  return [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+  ].includes(navigator.platform)
+  // iPad on iOS 13 detection
+  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+}
+
 var getOS = function() {
+    if (IOS()) {
+      return "IOS";
+    }
+    
+    var userAgent = navigator.userAgent.toLowerCase();
+    var Android = userAgent.indexOf("android") > -1;
+      
+    if(Android) {
+        return "Android";
+    }
+    
     var operatingSystems = {
         'Win': 'Windows',
         'Mac': 'MacOS',
