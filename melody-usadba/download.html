@@ -4,7 +4,24 @@
 </head>
 
 <body>
-  
+  <div id="Android" style="display: none">Вы будете автоматически перенаправлены для установки приложения на Android.
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=com.cozystorm.armelody">Для установки приложения нажмите сюда</a>. 
+  </p>
+  </div>
+  <div id="iOS" style="display: none">Вы будете автоматически перенаправлены для установки приложения на iOS. 
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=com.cozystorm.armelody">Для установки приложения нажмите сюда</a>.
+  </p>
+  </div>
+  <div id="unknownOS" style="display: none">Не удалось автоматически определить Ваше устройство. 
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=com.cozystorm.armelody">Для установки приложения на Android нажмите сюда</a>.
+  </p>
+  <p>
+    <a href="https://play.google.com/store/apps/details?id=com.cozystorm.armelody">Для установки приложения на iOS нажмите сюда</a>.
+  </p>
+  </div>
 </body>
 
 <script>
@@ -23,6 +40,8 @@ function IOS() {
 
 var getOS = function() {
     if (IOS()) {
+      document.getElementById('iOS').style.display = 'block';
+      window.location.replace("https://play.google.com/store/apps/details?id=com.cozystorm.armelody");
       return "IOS";
     }
     
@@ -30,22 +49,14 @@ var getOS = function() {
     var Android = userAgent.indexOf("android") > -1;
       
     if(Android) {
-        return "Android";
+        document.getElementById('Android').style.display = 'block';
+        window.location.replace("https://play.google.com/store/apps/details?id=com.cozystorm.armelody");
+        return "";
     }
     
-    var operatingSystems = {
-        'Win': 'Windows',
-        'Mac': 'MacOS',
-        'Linux': 'Linux',
-        'X11': 'UNIX'
-    };
-    for(var k in operatingSystems) {
-        if(navigator.appVersion.indexOf(k) !== -1) {
-            return operatingSystems[k];
-        }
-    }
-    return undefined;
+    document.getElementById('unknownOS').style.display = 'block';
+    return "";
 };
 
-document.body.innerHTML = getOS();
+getOS();
 </script>
