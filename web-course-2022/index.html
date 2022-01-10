@@ -1,0 +1,61 @@
+<head>
+<link rel="stylesheet" href="index.css"></script>
+</head>
+
+<body>
+<div class="main_container">
+    <div class="card_manager">
+        <div class="card_list">
+            <button class="card">
+                Card title!
+            </button>
+        </div>
+        <button class="add_card" onclick="openAddCardFrame()">
+            <div>
+                Добавить
+            </div>
+        </button>
+    </div>
+    
+    <div class="card_detailed add_card_outer invisible">
+        <form class="add_card_form">
+            <p>
+                <label>Заголовок</label> 
+                <input id="add_card_title" value="ТЗ">
+            </p>
+            <p>
+                <label>Ссылка на картинку </label>
+                <input id="add_card_image_ref" value="https://sun9-86.userapi.com/impg/3NUIhI09RI_VwX58tf8a2Krlv4HxUJYM7as47w/CckCcyyyHiI.jpg?size=800x600&quality=96&sign=a6528f0723f5d3b3ebbedeeb46c714a1&type=album">
+            </p>
+            <p>
+                <label>Текст</label> 
+                <textarea id="add_card_description">Вот такое вот ТЗ было</textarea>
+            </p>
+        </form>
+        <button class="button_manipulate_detailed" onclick="createCard()">
+            Добавить
+        </button>
+    </div>
+    <div class="card_description card_detailed">
+        <div class="card_content_text">
+            <img id="card_content_img"  src="https://img-fotki.yandex.ru/get/9506/137106206.529/0_117c1d_aa1f1027_orig.jpg">
+            <p class="card_content_text_inner">
+                Следует 
+            </p>
+        </div>
+        <button class="button_manipulate_detailed" onclick="deleteOpenedCard()">
+            Удалить
+        </button>
+    </div>
+</div>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="index.js"></script>
+
+
+</body>
