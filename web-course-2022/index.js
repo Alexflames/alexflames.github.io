@@ -98,7 +98,7 @@ function main() {
     };
 
     refreshCards();
-    openAddCardFrame();
+    focusAndOpenCard(0);
 }
 
 function deleteOpenedCard() {
