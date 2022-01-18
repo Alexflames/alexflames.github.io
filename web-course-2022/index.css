@@ -1,5 +1,6 @@
 body {
     --higlighted: rgb(241, 209, 28);
+    --threshold-aspect: 2/3;
 }
 
 div {
@@ -42,13 +43,19 @@ button {
 @media (max-aspect-ratio: 2/3) {
     .card_manager {
         width: 96%;
+        display: contents;
     }
 }
 
 .card_list {
-    display: inline;
     float: left;
     width: 100%;
+}
+
+@media (max-aspect-ratio: 2/3) { 
+    .card_list {
+        display: inherit;
+    }
 }
 
 .card {
@@ -68,6 +75,12 @@ button {
 
 .card:focus {
     background-color: var(--higlighted);
+}
+
+@media (max-aspect-ratio: 2/3) {
+    .card-focused {
+        order: -2;
+    }
 }
 
 .add_card {
@@ -103,12 +116,19 @@ button {
     .card_detailed {
         order: -1;
         width: 96%;
+        display: contents;
     }
 }
 
 .card_content_text {
     overflow: hidden;
     display: table-row;
+}
+
+@media (max-aspect-ratio: 2/3) {
+    .card_content_text {
+        order: -1;
+    }
 }
 
 #card_content_img {

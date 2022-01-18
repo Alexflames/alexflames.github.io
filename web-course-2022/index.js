@@ -70,17 +70,29 @@ function createCard() {
 }
 
 function focusAndOpenCard(number) {
+    unfocusAllCards();
     card = pageObjects.cardList.children(".card")[number];
     card.click();
     card.focus();
+
+    $(pageObjects.cardList.children(".card")[number]).addClass('card-focused')
+}
+
+function unfocusAllCards() {
+    Array.from(pageObjects.cardList.children(".card")).forEach(card => {
+        $(card).removeClass('card-focused');
+    });
 }
 
 function openCard(number) {
+    unfocusAllCards();
     openedCard = number;
     openDescriptionFrame();
 
     pageObjects.cardDetailedTextInner.html(cards[number].description);
     pageObjects.cardImage.attr("src", cards[number].image);
+
+    $(pageObjects.cardList.children(".card")[number]).addClass('card-focused')
 }
 
 function main() {
